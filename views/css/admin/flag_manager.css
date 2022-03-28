@@ -1,0 +1,15 @@
+.img-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    box-sizing: content-box;
+    padding: 15px;
+    border: 1px solid #c7d6db;
+    border-radius: 10px;
+}
+.img-holder img {
+    max-width: 100%;
+    max-height: 100%;
+}

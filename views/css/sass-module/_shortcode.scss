@@ -1,0 +1,58 @@
+// Arrow
+@mixin arrow-up($h, $w, $color) {
+    border-bottom: $h solid $color;
+    border-left: $w/2 solid transparent;
+    border-right: $w/2 solid transparent;
+}
+@mixin arrow-down($h, $w, $color) {
+    border-top: $h solid $color;
+    border-left: $w/2 solid transparent;
+    border-right: $w/2 solid transparent;
+}
+@mixin arrow-left($h, $w, $color) {
+    border-top: $h/2 solid transparent;
+    border-bottom: $h/2 solid transparent;
+    border-right: $w solid $color;
+}
+@mixin arrow-right($h, $w, $color) {
+    border-top: $h/2 solid transparent;
+    border-bottom: $h/2 solid transparent;
+    border-left: $w solid $color;
+}
+
+@mixin arrow-up-left($h, $w, $color) {
+    border-top: $h/2 solid $color;
+    border-bottom: $h/2 solid transparent;
+    border-left: $w/2 solid $color;
+    border-right: $w/2 solid transparent;
+}
+@mixin arrow-up-right($h, $w, $color) {
+    border-top: $h/2 solid $color;
+    border-bottom: $h/2 solid transparent;
+    border-left: $w/2 solid transparent;
+    border-right: $w/2 solid $color;
+}
+@mixin arrow-down-left($h, $w, $color) {
+    border-top: $h/2 solid transparent;
+    border-bottom: $h/2 solid $color;
+    border-left: $w/2 solid $color;
+    border-right: $w/2 solid transparent;
+}
+@mixin arrow-down-right($h, $w, $color) {
+    border-top: $h/2 solid transparent;
+    border-bottom: $h/2 solid $color;
+    border-left: $w/2 solid transparent;
+    border-right: $w/2 solid $color;
+}
+
+@mixin line-top($space: 2rem, $line_color: #dedede) {
+    margin-top: $space;
+    padding-top: $space;
+    border-top: 1px solid $line_color;
+}
+
+@mixin line-bottom($space: 2rem, $line_color: #dedede) {
+    margin-bottom: $space;
+    padding-bottom: $space;
+    border-bottom: 1px solid $line_color;
+}
