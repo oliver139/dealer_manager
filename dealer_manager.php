@@ -72,7 +72,6 @@ class Dealer_Manager extends Module
         $dealer_table = 'CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'dealer` (
             `id_dealer` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
             `name` VARCHAR(255) NOT NULL,
-            `brands` VARCHAR(255) NOT NULL,
             `tel` VARCHAR(16) NOT NULL,
             `email` VARCHAR(255),
             `fax` VARCHAR(16),
@@ -82,12 +81,19 @@ class Dealer_Manager extends Module
             `web` VARCHAR(255),
             `map_link` VARCHAR(255) NOT NULL,
             `address` VARCHAR(255) NOT NULL,
+            `active` TINYINT(1) UNSIGNED NOT NULL DEFAULT \'1\',
             `date_add` DATETIME NOT NULL,
             `date_upd` DATETIME NOT NULL,
             PRIMARY KEY (`id_dealer`)
         ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
+
+        $list_table = 'CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'dealer_list` (
+            `id_dealer` INT(10) UNSIGNED NOT NULL,
+            `id_dealer_brand` INT(10) UNSIGNED NOT NULL,
+            PRIMARY KEY (`id_dealer`, `id_dealer_brand`)
+        ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
         
-        return Db::getInstance()->execute($brand_table) && Db::getInstance()->execute($dealer_table);
+        return Db::getInstance()->execute($brand_table) && Db::getInstance()->execute($dealer_table) && Db::getInstance()->execute($list_table);
     }
 
     /**
@@ -98,8 +104,9 @@ class Dealer_Manager extends Module
     private function uninstallDB() {
         $brand_table = 'DROP TABLE `'._DB_PREFIX_.'dealer_brand`';
         $dealer_table = 'DROP TABLE `'._DB_PREFIX_.'dealer`';
+        $list_table = 'DROP TABLE `'._DB_PREFIX_.'dealer_list`';
         
-        return Db::getInstance()->execute($brand_table) && Db::getInstance()->execute($dealer_table);
+        return Db::getInstance()->execute($brand_table) && Db::getInstance()->execute($dealer_table) && Db::getInstance()->execute($list_table);
     }
 
     private function createImageDir() {
