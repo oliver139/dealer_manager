@@ -67,6 +67,19 @@ class AdminDealerBrandController extends ModuleAdminController
         ];
     }
 
+    public function initPageHeaderToolbar()
+    {
+        if (empty($this->display)) {
+            $this->page_header_toolbar_btn['new_brand'] = array(
+                'href' => self::$currentIndex . '&adddealer_brand&token=' . $this->token,
+                'desc' => $this->l('Add new brand'),
+                'icon' => 'process-icon-new',
+            );
+        }
+
+        parent::initPageHeaderToolbar();
+    }
+
     public function renderList() {
         return parent::renderList();
     }
@@ -116,17 +129,5 @@ class AdminDealerBrandController extends ModuleAdminController
         $this->fields_value['active'] = 1;
 
         return parent::renderForm();
-    }
-
-    public function processSave() {
-        // $type = strtolower(Tools::getValue('type'));
-        
-        // $file = new GenkiFileProcess($_FILES['flag_file'], ['image/jpeg', 'image/png']);
-        // $module_root = _PS_MODULE_DIR_ . $this->module->name . '/';
-
-        // if ($file->uploadFiles($module_root . 'views/img/' . $type)) {
-        //     return parent::processSave();
-        // }
-        return parent::processSave();
     }
 }
