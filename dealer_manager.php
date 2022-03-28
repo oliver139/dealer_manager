@@ -42,6 +42,7 @@ class Dealer_Manager extends Module
         // Configuration::updateValue('GENKI_FPS_ACCOUNT_TYPE', '1');
         
         return parent::install() &&
+            $this->createImageDir() &&
             $this->installDB() &&
             $this->addTab() &&
             $this->hooksRegistration();
@@ -99,6 +100,19 @@ class Dealer_Manager extends Module
         $dealer_table = 'DROP TABLE `'._DB_PREFIX_.'dealer`';
         
         return Db::getInstance()->execute($brand_table) && Db::getInstance()->execute($dealer_table);
+    }
+
+    private function createImageDir() {
+        $res = true;
+
+        if (!file_exists(_PS_IMG_DIR_ . 'dealers/')) {
+            $res &= mkdir(_PS_IMG_DIR_ . 'dealers/');
+        }
+        if (!file_exists(_PS_IMG_DIR_ . 'dealers/brands/')) {
+            $res &= mkdir(_PS_IMG_DIR_ . 'dealers/brands/');
+        }
+
+        return $res;
     }
 
     /**
