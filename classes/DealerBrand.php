@@ -16,10 +16,10 @@
 
 class DealerBrand extends ObjectModel
 {
-    /** @var $name The display name of the flag */
+    /** @var $name The display name of the brand */
     public $name;
 
-    /** @var $active Status of the flag */
+    /** @var $active Status*/
     public $active;
 
     /** @var $date_add */
