@@ -31,12 +31,12 @@ class AdminDealerBrandController extends ModuleAdminController
             'name' => [
                 'title' => $this->l('Name'),
                 'type' => 'text',
-                'filter_key' => 'a!flag_name'
+                'filter_key' => 'a!name'
             ],
             'image' => array(
                 'title' => $this->trans('Image', array(), 'Admin.Global'),
                 'align' => 'center',
-                'image' => 'dbrand',
+                'image' => 'dealers/brands',
                 'orderby' => false,
                 'search' => false,
             ),
@@ -51,8 +51,8 @@ class AdminDealerBrandController extends ModuleAdminController
             ],
         ];
         $this->fieldImageSettings = [
-            'name' => 'dealer_brand',
-            'dir' => 'dbrand',
+            'name' => 'brand_image',
+            'dir' => 'dealers/brands',
         ];
         $this->addRowAction('edit');
         $this->addRowAction('duplicate');
@@ -84,8 +84,8 @@ class AdminDealerBrandController extends ModuleAdminController
                 [
                     'type' => 'text',
                     'label' => $this->l('Name'),
-                    'name' => 'brand_name',
-                    'id' => 'brand_name',
+                    'name' => 'name',
+                    'id' => 'name',
                     'required' => true,
                 ],
                 [
@@ -111,7 +111,10 @@ class AdminDealerBrandController extends ModuleAdminController
                 'class' => 'btn btn-default pull-right'
             ],
         ];
-        
+
+        // Default values
+        $this->fields_value['active'] = 1;
+
         return parent::renderForm();
     }
 

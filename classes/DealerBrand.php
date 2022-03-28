@@ -41,4 +41,16 @@ class DealerBrand extends ObjectModel
             'date_upd'  => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
         ],
     ];
+
+
+    public function __construct($id = null, $idLang = null, $idShop = null)
+    {
+        parent::__construct($id, $idLang, $idShop);
+
+        $this->image_dir = _PS_IMG_DIR_ . 'dealers/brands/';
+    }
+
+    public function delete() {
+        return parent::delete() && $this->deleteImage();
+    }
 }
