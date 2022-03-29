@@ -113,10 +113,10 @@ class Dealer_Manager extends Module
         $res = true;
 
         if (!file_exists(_PS_IMG_DIR_ . 'dealers/')) {
-            $res &= mkdir(_PS_IMG_DIR_ . 'dealers/');
+            $res &= mkdir(_PS_IMG_DIR_ . 'dealers/', 0770);
         }
         if (!file_exists(_PS_IMG_DIR_ . 'dealers/brands/')) {
-            $res &= mkdir(_PS_IMG_DIR_ . 'dealers/brands/');
+            $res &= mkdir(_PS_IMG_DIR_ . 'dealers/brands/', 0770);
         }
 
         return $res;
