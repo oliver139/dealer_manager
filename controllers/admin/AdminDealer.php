@@ -91,11 +91,11 @@ class AdminDealerController extends ModuleAdminController
     public function renderForm() {
         $b_choice = [];
         $brands = DealerBrand::getAllBrands();
-        foreach ($brands as $brand) {
+        foreach ($brands as $id => $name) {
             $b_choice[] = [
-                'id' => $brand['id_dealer_brand'],
-                'name' => $brand['name'],
-                'val' => $brand['id_dealer_brand'],
+                'id' => $id,
+                'name' => $name,
+                'val' => $id,
             ];
         }
         
