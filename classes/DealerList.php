@@ -1,6 +1,6 @@
 <?php
 /**
- * 2020-2022 Genkiware
+ * 2022 Oliver
  *
  * NOTICE OF LICENSE
  *
@@ -8,8 +8,8 @@
  * With the purchase or the installation of the software in your application
  * you accept the licence agreement.
  *
- *  @author     Genkiware <info@genkiware.com>
- *  @copyright  2020-2022 Genkiware
+ *  @author     Oliver <oliver139.working@gmail.com>
+ *  @copyright  2022 Oliver
  *  @license    https://opensource.org/licenses/GPL-3.0 GNU General Public License version 3
  */
 

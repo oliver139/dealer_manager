@@ -1,6 +1,6 @@
 <?php
 /**
- * 2020-2022 Genkiware
+ * 2022 Oliver
  *
  * NOTICE OF LICENSE
  *
@@ -8,8 +8,8 @@
  * With the purchase or the installation of the software in your application
  * you accept the licence agreement.
  *
- *  @author     Genkiware <info@genkiware.com>
- *  @copyright  2020-2022 Genkiware
+ *  @author     Oliver <oliver139.working@gmail.com>
+ *  @copyright  2022 Oliver
  *  @license    https://opensource.org/licenses/GPL-3.0 GNU General Public License version 3
  */
 
@@ -79,7 +79,7 @@ class Dealer_Manager extends Module
             `twitter` VARCHAR(255),
             `instagram` VARCHAR(255),
             `web` VARCHAR(255),
-            `map_link` VARCHAR(255) NOT NULL,
+            `map_link` VARCHAR(511) NOT NULL,
             `address` VARCHAR(255) NOT NULL,
             `active` TINYINT(1) UNSIGNED NOT NULL DEFAULT \'1\',
             `date_add` DATETIME NOT NULL,
