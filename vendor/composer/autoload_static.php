@@ -8,7 +8,9 @@ class ComposerStaticInit9556e6d4d46119c8a12eb7aa5bdc03f6
 {
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dealer' => __DIR__ . '/../..' . '/classes/Dealer.php',
         'DealerBrand' => __DIR__ . '/../..' . '/classes/DealerBrand.php',
+        'DealerList' => __DIR__ . '/../..' . '/classes/DealerList.php',
         'OliTools' => __DIR__ . '/../..' . '/classes/OliTools.php',
     );
 

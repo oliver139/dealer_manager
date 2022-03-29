@@ -72,9 +72,9 @@ class Dealer_Manager extends Module
         $dealer_table = 'CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'dealer` (
             `id_dealer` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
             `name` VARCHAR(255) NOT NULL,
-            `tel` VARCHAR(16) NOT NULL,
+            `tel` VARCHAR(255) NOT NULL,
             `email` VARCHAR(255),
-            `fax` VARCHAR(16),
+            `fax` VARCHAR(255),
             `facebook` VARCHAR(255),
             `twitter` VARCHAR(255),
             `instagram` VARCHAR(255),

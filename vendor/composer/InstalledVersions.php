@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'd4d43cf45bb053fcfab3e3b1f8631400eaf0e16f',
+    'reference' => 'a5a2d88eef189a7615aa490976201da47e077b18',
     'name' => 'oliver/dealer_manager',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'd4d43cf45bb053fcfab3e3b1f8631400eaf0e16f',
+      'reference' => 'a5a2d88eef189a7615aa490976201da47e077b18',
     ),
   ),
 );
