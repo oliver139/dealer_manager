@@ -53,7 +53,7 @@ class DealerBrand extends ObjectModel
         return parent::delete() && $this->deleteImage() && DealerList::delEntryByBrand($this->id);
     }
 
-    public static function getAllBrands($activeOnly = false) {
+    public static function getAllBrands($activeOnly = true) {
         $sql = new DbQuery();
         $sql->select('id_dealer_brand, name');
         $sql->from('dealer_brand', 'dlb');
@@ -63,6 +63,21 @@ class DealerBrand extends ObjectModel
             $sql->where('dlb.active = 1');
         }
 
-        return Db::getInstance()->executeS($sql);
+        $result = Db::getInstance()->executeS($sql);
+
+        if(!empty($result)) {
+            foreach ($result as $row) {
+                $organized[$row['id_dealer_brand']] = $row['name'];
+            }
+            $result = $organized;
+        }
+
+        return $result;
+    }
+
+    public static function getBrandNameById($id_dealer_brand) {
+        $brand = new self($id_dealer_brand);
+
+        return $brand->name;
     }
 }

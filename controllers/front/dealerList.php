@@ -15,4 +15,61 @@
 
 class Dealer_ManagerDealerListModuleFrontController extends ModuleFrontController
 {
+    public $id_dealer_brand;
+    public $brand_name;
+
+    public function init()
+    {
+        parent::init();
+        
+        $this->id_dealer_brand = Tools::getValue('id_dealer_brand');
+        if ($this->id_dealer_brand) {
+            $dealers_count = DealerList::getEntryByBrand($this->id_dealer_brand);
+            if (empty($dealers_count)) {
+                $this->id_dealer_brand = false;
+            }
+        }
+
+        $dealers_count = null;
+        $this->brand_name = (!$this->id_dealer_brand) ? '' : DealerBrand::getBrandNameById($this->id_dealer_brand);
+    }
+    
+    public function initContent()
+    {
+        $this->php_self = (!$this->id_dealer_brand) ? 'dealers' : 'dealers-' . $this->brand_name;
+        parent::initContent();
+
+        $brands = DealerBrand::getAllBrands();
+        $dealers = (!$this->id_dealer_brand) ? DealerList::getList() : DealerList::getListByBrandId($this->id_dealer_brand);
+        foreach ($dealers as &$dealer) {
+            $dealer['brand'] = explode(',', $dealer['brand']);
+        }
+        
+        $this->context->smarty->assign([
+            'brand_name' => $this->brand_name,
+            'pagetitle' => (!$this->id_dealer_brand) ? $this->module->l('Dealers') : sprintf($this->module->l('Dealers of %s'), $this->brand_name),
+            'brands' => $brands,
+            'dealers' => $dealers,
+        ]);
+        $this->setTemplate('module:dealer_manager/views/templates/front/dealer_listing.tpl');
+    }
+
+    protected function getBreadcrumbLinks()
+    {
+        $breadcrumb = parent::getBreadcrumbLinks();
+
+        $breadcrumb['links'][] = [
+            'title' => $this->module->l('Dealers'),
+            'url' => $this->context->link->getModuleLink($this->module->name, 'dealerList'),
+        ];
+        
+        if ($this->id_dealer_brand) {
+            $breadcrumb['links'][] = [
+                'title' => $this->brand_name,
+                'url' => $this->context->link->getModuleLink($this->module->name, 'dealerList', ['id_dealer_brand' => $this->id_dealer_brand]),
+            ];
+        }
+
+        return $breadcrumb;
+    }
 }
