@@ -131,4 +131,13 @@ class AdminDealerBrandController extends ModuleAdminController
 
         return parent::renderForm();
     }
+
+    protected function afterImageUpload()
+    {
+        if (file_exists(_PS_TMP_IMG_DIR_ . $this->table . '_mini_' . $this->object->id . '_' . $this->context->shop->id . '.jpg')) {
+            unlink(_PS_TMP_IMG_DIR_ . $this->table . '_mini_' . $this->object->id . '_' . $this->context->shop->id . '.jpg');
+        }
+
+        return true;
+    }
 }
