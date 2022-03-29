@@ -126,7 +126,9 @@ class AdminDealerBrandController extends ModuleAdminController
         ];
 
         // Default values
-        $this->fields_value['active'] = 1;
+        if ($this->display == 'add') {
+            $this->fields_value['active'] = 1;
+        }
 
         return parent::renderForm();
     }
