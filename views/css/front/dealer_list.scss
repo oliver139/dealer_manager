@@ -1,0 +1,74 @@
+.dealers-header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 90px;
+}
+
+.dealers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    padding: 2rem 0;
+    &:nth-of-type(even)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100rem;
+        box-sizing: content-box;
+        width: 100%;
+        height: 100%;
+        background: #d6f0fa;
+        padding: 0 100rem;
+        z-index: -999;
+    }
+    .dealer-name h2 {
+        font-size: 1.5rem;
+    }
+    .dealer-brands {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 4.375rem);
+        gap: 0.625rem;
+        margin-top: 1.5rem;
+    }
+    .dealer-contact {
+        margin-top: 1.5rem;
+        .dinfo {
+            color: #313131;
+            font-size: 1rem;
+            line-height: 1.25;
+            + .dinfo {
+                margin-top: 0.5rem;
+            }
+        }
+    }
+    .dealer-social {
+        display: flex;
+        flex-direction: row;
+        margin-top: 1.5rem;
+        .dinfo {
+            i {
+                font-size: 2.5rem;
+            }
+            + .dinfo {
+                margin-left: 0.625rem;
+            }
+        }
+    }
+    .dealers-address {
+        .dinfo-address {
+            color: #313131;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        grid-template-columns: 1fr;
+        .dealers-address {
+            margin-top: 1.5rem;
+            border-top: 1px dashed #8d8d8d;
+            padding-top: 1.5rem;
+        }
+    }
+}

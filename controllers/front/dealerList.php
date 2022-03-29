@@ -72,4 +72,10 @@ class Dealer_ManagerDealerListModuleFrontController extends ModuleFrontControlle
 
         return $breadcrumb;
     }
+
+    public function setMedia() {
+        $this->registerStylesheet('dealer-list', 'modules/' . $this->module->name . '/views/css/front/dealer_list.min.css', ['media' => 'all', 'priority' => 80]);
+
+        return parent::setMedia();
+    }
 }
