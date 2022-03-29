@@ -50,7 +50,7 @@ class Dealer extends ObjectModel
             'twitter' => ['type' => self::TYPE_STRING, 'size' => 255],
             'instagram' => ['type' => self::TYPE_STRING, 'size' => 255],
             'web' => ['type' => self::TYPE_STRING, 'size' => 255],
-            'map_link' => ['type' => self::TYPE_STRING, 'size' => 255],
+            'map_link' => ['type' => self::TYPE_STRING, 'size' => 511],
             'address' => ['type' => self::TYPE_STRING, 'size' => 255],
             'active'    => ['type' => self::TYPE_BOOL, 'validate' => 'isBool'],
             'date_add'  => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
