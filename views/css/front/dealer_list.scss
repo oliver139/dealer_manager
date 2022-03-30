@@ -6,7 +6,7 @@
     margin-bottom: 90px;
 }
 
-.dealers {
+.dealer-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
@@ -56,7 +56,7 @@
             }
         }
     }
-    .dealers-address {
+    .dealer-address {
         .dinfo-address {
             color: #313131;
             font-size: 1rem;
@@ -65,7 +65,7 @@
     }
     @media screen and (max-width: 767px) {
         grid-template-columns: 1fr;
-        .dealers-address {
+        .dealer-address {
             margin-top: 1.5rem;
             border-top: 1px dashed #8d8d8d;
             padding-top: 1.5rem;

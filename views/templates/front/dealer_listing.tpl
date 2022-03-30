@@ -14,8 +14,8 @@
         {block name='page_content_top'}{/block}
         {block name='page_content'}
             {foreach $dealers as $dealer}
-                <div class="dealers">
-                    <div class="dealers-info">
+                <div class="dealer-card">
+                    <div class="dealer-info">
                         <div class="dealer-name">
                             <h2>{$dealer.name}</h2>
                         </div>
@@ -67,7 +67,7 @@
                             </div>
                         {/if}
                     </div>
-                    <div class="dealers-address">
+                    <div class="dealer-address">
                         <div class="dinfo dinfo-address"><strong>Address: </strong>{$dealer.address}</div>
                         <div class="dinfo dinfo-map">
                             <iframe src="{$dealer.map_link}" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
