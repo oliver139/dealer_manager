@@ -119,7 +119,6 @@ class AdminDealerController extends ModuleAdminController
                     'name' => 'tel',
                     'id' => 'tel',
                     'col' => 3,
-                    'required' => true,
                 ],
                 [
                     'type' => 'text',
@@ -141,7 +140,6 @@ class AdminDealerController extends ModuleAdminController
                     'name' => 'address',
                     'id' => 'address',
                     'col' => 3,
-                    'required' => true,
                 ],
                 [
                     'type' => 'text',
@@ -149,7 +147,6 @@ class AdminDealerController extends ModuleAdminController
                     'name' => 'map_link',
                     'id' => 'map_link',
                     'col' => 6,
-                    'required' => true,
                 ],
                 [
                     'type' => 'text',

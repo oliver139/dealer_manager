@@ -42,7 +42,7 @@ class Dealer extends ObjectModel
         'table' => 'dealer',
         'primary' => 'id_dealer',
         'fields' => [
-            'name' => ['type' => self::TYPE_STRING, 'size' => 255],
+            'name' => ['type' => self::TYPE_STRING, 'required' => true,'size' => 255],
             'tel' => ['type' => self::TYPE_STRING, 'size' => 255],
             'email' => ['type' => self::TYPE_STRING, 'size' => 255],
             'fax' => ['type' => self::TYPE_STRING, 'size' => 255],
