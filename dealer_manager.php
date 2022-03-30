@@ -44,8 +44,7 @@ class Dealer_Manager extends Module
         return parent::install() &&
             $this->createImageDir() &&
             $this->installDB() &&
-            $this->addTab() &&
-            $this->hooksRegistration();
+            $this->addTab();
     }
 
     public function uninstall() {
@@ -122,21 +121,6 @@ class Dealer_Manager extends Module
         return $res;
     }
 
-    /**
-     * Register Hooks
-     * 
-     * @param string $version Prestashop version
-     * 
-     * @return bool Result
-     */
-    private function hooksRegistration($version = '') {
-        $hooks = [
-            'displayDealerList'
-        ];
-
-        return $this->registerHook($hooks);
-    }
-
     private function addTab() {
         $res = true;
         $tabparent = "AdminDealerManager";
@@ -197,17 +181,5 @@ class Dealer_Manager extends Module
             }
         }
         return true;
-    }
-
-    /**
-     * 
-     * Render list of dealder
-     * 
-     * @param array $params Brand name
-     * 
-     * @return string
-     */
-    public function HookDisplayDealerList($params) {
-
     }
 }
