@@ -28,6 +28,11 @@ class Dealer_ManagerDealerListModuleFrontController extends ModuleFrontControlle
             if (empty($dealers_count)) {
                 $this->id_dealer_brand = false;
             }
+
+            $dealer_brand = new DealerBrand($this->id_dealer_brand);
+            if (!$dealer_brand->active) {
+                $this->id_dealer_brand = false;
+            }
         }
 
         $dealers_count = null;
