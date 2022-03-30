@@ -51,7 +51,12 @@ class Dealer_ManagerDealerListModuleFrontController extends ModuleFrontControlle
             'brands' => $brands,
             'dealers' => $dealers,
         ]);
-        $this->setTemplate('module:dealer_manager/views/templates/front/dealer_listing.tpl');
+
+        if (!$this->id_dealer_brand) {
+            $this->setTemplate('module:dealer_manager/views/templates/front/dealer_grid.tpl');
+        } else {
+            $this->setTemplate('module:dealer_manager/views/templates/front/dealer_listing.tpl');
+        }
     }
 
     protected function getBreadcrumbLinks()
