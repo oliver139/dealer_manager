@@ -29,9 +29,9 @@
                         </div>
                         {if !empty($dealer.tel) || !empty($dealer.fax) || !empty($dealer.email)}
                             <div class="dealer-contact">
-                                {if !empty($dealer.tel)}<div class="dinfo dinfo-tel"><strong>Tel: </strong>{$dealer.tel}</div>{/if}
-                                {if !empty($dealer.fax)}<div class="dinfo dinfo-fax"><strong>Fax: </strong>{$dealer.fax}</div>{/if}
-                                {if !empty($dealer.email)}<div class="dinfo dinfo-email"><strong>Email: </strong>{$dealer.email}</div>{/if}
+                                {if !empty($dealer.tel)}<div class="dinfo dinfo-tel"><strong>{l s='Tel' mod='dealer_manager'}: </strong>{$dealer.tel}</div>{/if}
+                                {if !empty($dealer.fax)}<div class="dinfo dinfo-fax"><strong>{l s='Fax' mod='dealer_manager'}: </strong>{$dealer.fax}</div>{/if}
+                                {if !empty($dealer.email)}<div class="dinfo dinfo-email"><strong>{l s='Email' mod='dealer_manager'}: </strong>{$dealer.email}</div>{/if}
                             </div>
                         {/if}
                         {if !empty($dealer.facebook) || !empty($dealer.twitter) || !empty($dealer.instagram) || !empty($dealer.web)}
@@ -70,7 +70,7 @@
                     </div>
                     <div class="dealer-address">
                         {if !empty($dealer.address)}
-                            <div class="dinfo dinfo-address"><strong>Address: </strong>{$dealer.address}</div>
+                            <div class="dinfo dinfo-address"><strong>{l s='Address' mod='dealer_manager'}: </strong>{$dealer.address}</div>
                             <div class="dinfo dinfo-map">
                                 <iframe src="{$dealer.map_link}" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                             </div>
