@@ -41,7 +41,7 @@ class Dealer_ManagerDealerListModuleFrontController extends ModuleFrontControlle
     
     public function initContent()
     {
-        $this->php_self = (!$this->id_dealer_brand) ? 'dealers' : 'dealers-' . $this->brand_name;
+        $this->php_self = 'dealerList';
         parent::initContent();
 
         $brands = DealerBrand::getAllBrands();
