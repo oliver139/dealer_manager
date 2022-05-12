@@ -45,7 +45,7 @@ class Dealer_ManagerDealerListModuleFrontController extends ModuleFrontControlle
         parent::initContent();
 
         $brands = DealerBrand::getAllBrands();
-        $dealers = (!$this->id_dealer_brand) ? DealerList::getList() : DealerList::getListByBrandId($this->id_dealer_brand);
+        $dealers = (!$this->id_dealer_brand) ? DealerList::getList($this->context->language->id) : DealerList::getListByBrandId($this->id_dealer_brand, $this->context->language->id);
         foreach ($dealers as &$dealer) {
             $dealer['brand'] = explode(',', $dealer['brand']);
         }

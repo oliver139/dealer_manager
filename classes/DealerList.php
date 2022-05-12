@@ -60,31 +60,36 @@ class DealerList
         return Db::getInstance()->executeS($sql);
     }
 
-    public static function getList($active_only = true) {
-        $sql = 'SELECT dl.`id_dealer`, GROUP_CONCAT(dl.`id_dealer_brand` ORDER BY dl.id_dealer_brand ASC SEPARATOR ",") AS brand, d.`name`, `tel`, `email`, `fax`, `facebook`, `twitter`, `instagram`, `web`, `map_link`, `address` FROM `' . _DB_PREFIX_ . 'dealer_list` dl
-        LEFT JOIN `' . _DB_PREFIX_ . 'dealer_brand` dlb ON dl.`id_dealer_brand` = dlb.`id_dealer_brand`
-        LEFT JOIN `' . _DB_PREFIX_ . 'dealer` d ON dl.`id_dealer` = d.`id_dealer`';
-        
-        if ($active_only) {
-            $sql .= ' WHERE dlb.`active` = 1 AND d.`active` = 1';
-        }
-
-        $sql .= ' GROUP BY dl.`id_dealer` ORDER BY d.`name`';
-
-        return Db::getInstance()->executeS($sql);
-    }
-
-    public static function getListByBrandId($id_dealer_brand, $active_only = true) {
-        $sql = 'SELECT dl.`id_dealer`, GROUP_CONCAT(dl.`id_dealer_brand` ORDER BY dl.id_dealer_brand ASC SEPARATOR ",") AS brand, d.`name`, `tel`, `email`, `fax`, `facebook`, `twitter`, `instagram`, `web`, `map_link`, `address` FROM `' . _DB_PREFIX_ . 'dealer_list` dl
+    public static function getList($id_lang = 1, $active_only = true) {
+        $sql = 'SELECT dl.`id_dealer`, GROUP_CONCAT(dl.`id_dealer_brand` ORDER BY dl.id_dealer_brand ASC SEPARATOR ",") AS brand, d.`tel`, `email`, `fax`, `facebook`, `twitter`, `instagram`, `web`, `map_link`, dlang.`name`, `address`
+        FROM `' . _DB_PREFIX_ . 'dealer_list` dl
         LEFT JOIN `' . _DB_PREFIX_ . 'dealer_brand` dlb ON dl.`id_dealer_brand` = dlb.`id_dealer_brand`
         LEFT JOIN `' . _DB_PREFIX_ . 'dealer` d ON dl.`id_dealer` = d.`id_dealer`
-        WHERE dl.`id_dealer` IN (SELECT `id_dealer` FROM `' . _DB_PREFIX_ . 'dealer_list` WHERE id_dealer_brand = ' . $id_dealer_brand . ')';
+        LEFT JOIN `' . _DB_PREFIX_ . 'dealer_lang` dlang ON dl.`id_dealer` = dlang.`id_dealer`
+        WHERE dlang.id_lang = ' . $id_lang;
         
         if ($active_only) {
             $sql .= ' AND dlb.`active` = 1 AND d.`active` = 1';
         }
 
-        $sql .= ' GROUP BY dl.`id_dealer` ORDER BY d.`name`';
+        $sql .= ' GROUP BY dl.`id_dealer` ORDER BY dlang.`name`';
+
+        return Db::getInstance()->executeS($sql);
+    }
+
+    public static function getListByBrandId($id_dealer_brand, $id_lang = 2, $active_only = true) {
+        $sql = 'SELECT dl.`id_dealer`, GROUP_CONCAT(dl.`id_dealer_brand` ORDER BY dl.id_dealer_brand ASC SEPARATOR ",") AS brand, d.`tel`, `email`, `fax`, `facebook`, `twitter`, `instagram`, `web`, `map_link`, dlang.`name`, `address`
+        FROM `' . _DB_PREFIX_ . 'dealer_list` dl
+        LEFT JOIN `' . _DB_PREFIX_ . 'dealer_brand` dlb ON dl.`id_dealer_brand` = dlb.`id_dealer_brand`
+        LEFT JOIN `' . _DB_PREFIX_ . 'dealer` d ON dl.`id_dealer` = d.`id_dealer`
+        LEFT JOIN `' . _DB_PREFIX_ . 'dealer_lang` dlang ON dl.`id_dealer` = dlang.`id_dealer`
+        WHERE dlang.id_lang = ' . $id_lang . ' AND dl.`id_dealer` IN (SELECT `id_dealer` FROM `' . _DB_PREFIX_ . 'dealer_list` WHERE id_dealer_brand = ' . $id_dealer_brand . ')';
+        
+        if ($active_only) {
+            $sql .= ' AND dlb.`active` = 1 AND d.`active` = 1';
+        }
+
+        $sql .= ' GROUP BY dl.`id_dealer` ORDER BY dlang.`name`';
 
         return Db::getInstance()->executeS($sql);
     }
