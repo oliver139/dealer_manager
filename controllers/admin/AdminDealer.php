@@ -20,6 +20,7 @@ class AdminDealerController extends ModuleAdminController
         $this->bootstrap = true;
         $this->table = 'dealer';
         $this->className = 'Dealer';
+        $this->lang = true;
         parent::__construct();
 
         $this->fields_list = [
@@ -110,7 +111,8 @@ class AdminDealerController extends ModuleAdminController
                     'label' => $this->l('Name'),
                     'name' => 'name',
                     'id' => 'name',
-                    'col' => 3,
+                    'col' => 4,
+                    'lang' => true,
                     'required' => true,
                 ],
                 [
@@ -139,7 +141,8 @@ class AdminDealerController extends ModuleAdminController
                     'label' => $this->l('Address'),
                     'name' => 'address',
                     'id' => 'address',
-                    'col' => 3,
+                    'col' => 4,
+                    'lang' => true,
                 ],
                 [
                     'type' => 'text',

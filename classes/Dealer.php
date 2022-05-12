@@ -41,8 +41,9 @@ class Dealer extends ObjectModel
     public static $definition = [
         'table' => 'dealer',
         'primary' => 'id_dealer',
+        'multilang' => true,
         'fields' => [
-            'name' => ['type' => self::TYPE_STRING, 'required' => true,'size' => 255],
+            'name' => ['type' => self::TYPE_STRING, 'required' => true,'size' => 255,'lang' => true],
             'tel' => ['type' => self::TYPE_STRING, 'size' => 255],
             'email' => ['type' => self::TYPE_STRING, 'size' => 255],
             'fax' => ['type' => self::TYPE_STRING, 'size' => 255],
@@ -51,7 +52,7 @@ class Dealer extends ObjectModel
             'instagram' => ['type' => self::TYPE_STRING, 'size' => 255],
             'web' => ['type' => self::TYPE_STRING, 'size' => 255],
             'map_link' => ['type' => self::TYPE_STRING, 'size' => 511],
-            'address' => ['type' => self::TYPE_STRING, 'size' => 255],
+            'address' => ['type' => self::TYPE_STRING, 'size' => 255,'lang' => true],
             'active'    => ['type' => self::TYPE_BOOL, 'validate' => 'isBool'],
             'date_add'  => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
             'date_upd'  => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],

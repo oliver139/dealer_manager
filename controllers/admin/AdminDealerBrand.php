@@ -98,6 +98,7 @@ class AdminDealerBrandController extends ModuleAdminController
                     'label' => $this->l('Name'),
                     'name' => 'name',
                     'id' => 'name',
+                    'col' => 5,
                     'required' => true,
                 ],
                 [
